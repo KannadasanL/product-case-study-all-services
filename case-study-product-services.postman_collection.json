@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "42d15db4-ce08-4c81-b1b2-34b43a0fe959",
+		"name": "case-study-product-services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product-service",
+			"item": [
+				{
+					"name": "get-application-name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6001/case-study/message",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"case-study",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-product-byid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6001/case-study/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"case-study",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6001/case-study/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"case-study",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"iphonse4s\",\r\n    \"brand\": \"apple\",\r\n    \"madeIn\": \"china\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6001/case-study/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"case-study",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"iphonse6s\",\r\n    \"brand\": \"apple\",\r\n    \"madeIn\": \"india\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6001/case-study/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"case-study",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-all-products",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6001/case-study/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"case-study",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-product-byid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6001/case-study/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6001",
+							"path": [
+								"case-study",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product-price-service",
+			"item": [
+				{
+					"name": "delete-price-byid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6002/case-study/prices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6002",
+							"path": [
+								"case-study",
+								"prices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-price-byproductid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": 1,\r\n    \"priceValue\": 65000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6002/case-study/prices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6002",
+							"path": [
+								"case-study",
+								"prices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-price-byproductid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": 1,\r\n    \"priceValue\": 58000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6002/case-study/prices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6002",
+							"path": [
+								"case-study",
+								"prices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-price-byproductid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6002/case-study/prices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6002",
+							"path": [
+								"case-study",
+								"prices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-price-service-message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6002/case-study/message",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6002",
+							"path": [
+								"case-study",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-gateway",
+			"item": [
+				{
+					"name": "product-getproduct-api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8762/api/productservice/case-study/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8762",
+							"path": [
+								"api",
+								"productservice",
+								"case-study",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product-offer-service",
+			"item": [
+				{
+					"name": "get-message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6003/case-study/message",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6003",
+							"path": [
+								"case-study",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-offer-byproductid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6003/case-study/offers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6003",
+							"path": [
+								"case-study",
+								"offers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-offer-byproductid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": 1,\r\n    \"offerPercent\": 0.27\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6003/case-study/offers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6003",
+							"path": [
+								"case-study",
+								"offers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-offer-byproductid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"offerPercent\": 0.30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6003/case-study/offers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6003",
+							"path": [
+								"case-study",
+								"offers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-offer-byproductid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6003/case-study/offers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6003",
+							"path": [
+								"case-study",
+								"offers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product-inventory-service",
+			"item": [
+				{
+					"name": "get-messasge",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6004/case-study/message",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6004",
+							"path": [
+								"case-study",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-inventory-byproductid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6004/case-study/inventories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6004",
+							"path": [
+								"case-study",
+								"inventories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-inventory-byproductid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": 1,\r\n    \"quantity\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6004/case-study/inventories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6004",
+							"path": [
+								"case-study",
+								"inventories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-inventory-byproductid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"quantity\": 11\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6004/case-study/inventories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6004",
+							"path": [
+								"case-study",
+								"inventories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-inventory-byproductid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6004/case-study/inventories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6004",
+							"path": [
+								"case-study",
+								"inventories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product-service-registry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8761",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8761"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product-config-server-applicationproperties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/application/default",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"application",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hystrix-dashboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8889/hystrix",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"hystrix"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hystrix-stream",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6001/actuator/hystrix.stream",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6001",
+					"path": [
+						"actuator",
+						"hystrix.stream"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
