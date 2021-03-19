@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "product.service.gateway.url",
+    "type": "java.lang.String",
+    "description": "A description for 'product.service.gateway.url'"
+  },
+  {
+    "name": "product.service.context.uri",
+    "type": "java.lang.String",
+    "description": "A description for 'product.service.context.uri'"
+  }
+]}

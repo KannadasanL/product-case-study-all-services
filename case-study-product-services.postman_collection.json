@@ -577,6 +577,72 @@
 			]
 		},
 		{
+			"name": "product-view-service",
+			"item": [
+				{
+					"name": "get-allproducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/case-study/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"case-study",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/case-study/message",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"case-study",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-productbyid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/case-study/products/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"case-study",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "product-service-registry",
 			"request": {
 				"method": "GET",
