@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.casestudy.product.view.model.Product;
 import com.casestudy.product.view.service.ProductViewService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/case-study")
+@Slf4j
 public class ProductViewController {
 
 	@Value("${spring.application.name}")
@@ -26,17 +29,20 @@ public class ProductViewController {
 	
 	@GetMapping("/message")
 	public String getAppName() {
+		log.info("getAppName::{}", appName );
 		return "I am in "+appName;
 	}
 	
 	@GetMapping("/products/{id}")
 	public ResponseEntity<Product> getProductById(@PathVariable(value = "id") long id) {
+		log.info("Calling getProductById from ProductViewController");
 		Product product = viewService.getProductsById(id);
 		return new ResponseEntity<>(product, HttpStatus.OK);
 	}
 	
 	@GetMapping("/products")
 	public ResponseEntity<?> getAllProducts() {
+		log.info("Calling getAllProducts from ProductViewController");
 		List<Product> product = viewService.getAllProducts();
 		return new ResponseEntity<>(product, HttpStatus.OK);
 	}

@@ -9,7 +9,10 @@ import org.springframework.web.client.RestTemplate;
 
 import com.casestudy.product.view.model.Product;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class ProductViewServiceImpl implements ProductViewService {
 	
 	@Autowired
@@ -23,6 +26,7 @@ public class ProductViewServiceImpl implements ProductViewService {
 	
 	@Override
 	public Product getProductsById(long id) {
+		log.info("calling product service through gateway:: {} ", gatewayUrl+uri+"/"+id);
 		Product product = restTemplate.getForObject(gatewayUrl+uri+"/"+id, Product.class);
 		return product;
 	}
@@ -30,6 +34,7 @@ public class ProductViewServiceImpl implements ProductViewService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> getAllProducts() {
+		log.info("calling product service through gateway:: {} ", gatewayUrl+uri);
 		List<Product> products = (List<Product>) restTemplate.getForObject(gatewayUrl+uri, Object.class);
 		return products;
 	}

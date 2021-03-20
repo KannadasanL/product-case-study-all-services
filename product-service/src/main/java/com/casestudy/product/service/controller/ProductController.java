@@ -51,6 +51,7 @@ public class ProductController {
 
 	@GetMapping("/message")
 	public String getMessage() {
+		log.info("applicationName:: {} ", applicationName);
 		return "I am " + applicationName;
 	}
 
@@ -63,6 +64,7 @@ public class ProductController {
 	@GetMapping("/products/{id}")
 	public ResponseEntity<?> getProduct(@PathVariable(value = "id") Long id) throws ResourceNotFoundException {
 		Product productAvailable = productService.getProductById(id);
+		log.info("calling price service from product controller");
 		Price price = restService.getPriceForProductId(id);
 		ProductResponse productResponse = new ProductResponse();
 		productResponse.setId(productAvailable.getId());
@@ -70,10 +72,10 @@ public class ProductController {
 		productResponse.setBrand(productAvailable.getBrand());
 		productResponse.setMadeIn(productAvailable.getMadeIn());
 		productResponse.setPrice(price.getPriceValue());
-		
+		log.info("calling offer service from product controller");
 		Offer offer = restService.getOfferForProductId(id);
 		productResponse.setDiscount(offer.getOfferPercent());
-		
+		log.info("calling inventory service from product controller");
 		Inventory inventory = restService.getQuantityForProductId(id);
 		productResponse.setQuantity(inventory.getQuantity());
 		
@@ -82,6 +84,7 @@ public class ProductController {
 
 	@GetMapping("/products/")
 	public ResponseEntity<?> getAllProducts() {
+		log.info("calling getallproducts method from product controller");
 		List<Product> allProducts = productService.getAllProducts();
 		if (allProducts.size() <= 0) {
 			log.info("no products available");
@@ -93,6 +96,7 @@ public class ProductController {
 	
 	@GetMapping("/products")
 	public ResponseEntity<?> getAllProducts1() {
+		log.info("calling getallproducts method from product controller");
 		List<ProductResponse> allProducts = productService.getAllProductsResponse();
 		if (allProducts.size() <= 0) {
 			log.info("no products available");
@@ -120,13 +124,13 @@ public class ProductController {
 		productResponse.setName(savedProduct.getName());
 		productResponse.setBrand(savedProduct.getBrand());
 		productResponse.setMadeIn(savedProduct.getMadeIn());
-		
+		log.info("calling price service from product controller");
 		Price price = restService.getPriceForProductId(savedProduct.getId());
 		productResponse.setPrice(price.getPriceValue());
-		
+		log.info("calling offer service from product controller");
 		Offer offer = restService.getOfferForProductId(savedProduct.getId());
 		productResponse.setDiscount(offer.getOfferPercent());
-		
+		log.info("calling inventory service from product controller");
 		Inventory inventory = restService.getQuantityForProductId(savedProduct.getId());
 		productResponse.setQuantity(inventory.getQuantity());
 		

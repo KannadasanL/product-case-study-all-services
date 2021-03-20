@@ -19,9 +19,12 @@ import com.casestudy.product.offer.entity.Offer;
 import com.casestudy.product.offer.exception.OfferNotFound;
 import com.casestudy.product.offer.service.OfferService;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 @RestController
 @RequestMapping("/case-study")
+@Slf4j
 public class OfferController {
 
 	@Value("${spring.application.name}")
@@ -32,18 +35,21 @@ public class OfferController {
 	
 	@GetMapping("/message")
 	public String getAppName() {
+		log.info("appName: {}", appName);
 		return "I am in "+appName;
 	}
 	
 	@GetMapping("/offers/{id}")
 	public ResponseEntity<Offer> getOfferForProduct(@PathVariable(value = "id") long productId)
 			throws OfferNotFound {
+		log.info("calling getOfferForProduct from OfferController");
 		Offer offer = offerService.getOfferById(productId);
 		return ResponseEntity.ok().body(offer);
 	}
 	
 	@PostMapping("/offers")
 	public ResponseEntity<Offer> addOfferForProduct(@Validated @RequestBody Offer offer) {
+		log.info("calling addOfferForProduct from OfferController");
 		Offer savedOffer = offerService.addOffer(offer);
 		return ResponseEntity.ok().body(savedOffer);
 	}
@@ -51,6 +57,7 @@ public class OfferController {
 	@PutMapping("/offers/{id}")
 	public ResponseEntity<Offer> updateOfferForProduct(@PathVariable(value = "id") long id, @Validated @RequestBody Offer offer) 
 			throws OfferNotFound {
+		log.info("calling updateOfferForProduct from OfferController");
 		Offer fetchedOffer = offerService.getOfferById(id);
 		fetchedOffer.setOfferPercent(offer.getOfferPercent());
 		final Offer updatedOffer = offerService.addOffer(fetchedOffer);
@@ -59,6 +66,7 @@ public class OfferController {
 	
 	@DeleteMapping("/offers/{id}")
 	public ResponseEntity<?> deleteOfferForProduct(@PathVariable(value = "id") long id) throws OfferNotFound {
+		log.info("calling deleteOfferForProduct from OfferController");
 		offerService.deleteOfferById(id);
 		return new ResponseEntity<>("Offer for this product id "+id +" has been deleted!!!",HttpStatus.OK);
 	}	

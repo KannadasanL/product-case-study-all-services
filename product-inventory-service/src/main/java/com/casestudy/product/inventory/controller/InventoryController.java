@@ -18,8 +18,11 @@ import com.casestudy.product.inventory.entity.Inventory;
 import com.casestudy.product.inventory.exception.InventoryNotFound;
 import com.casestudy.product.inventory.service.InventoryService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/case-study")
+@Slf4j
 public class InventoryController {
 
 	@Value("${spring.application.name}")
@@ -30,18 +33,21 @@ public class InventoryController {
 	
 	@GetMapping("/message")
 	public String getAppName() {
+		log.info("appName: {}", appName);
 		return "I am in "+appName;
 	}
 	
 	@GetMapping("/inventories/{id}")
 	public ResponseEntity<Inventory> getQuantityForProduct(@PathVariable(value = "id") long productId)
 			throws InventoryNotFound {
+		log.info("calling getQuantityForProduct from InventoryController");
 		Inventory inven = invenService.getQuantityById(productId);
 		return ResponseEntity.ok().body(inven);
 	}
 	
 	@PostMapping("/inventories")
 	public ResponseEntity<Inventory> addQuantityForProduct(@Validated @RequestBody Inventory inven) {
+		log.info("calling addQuantityForProduct from InventoryController");
 		Inventory savedInven = invenService.addQuantity(inven);
 		return ResponseEntity.ok().body(savedInven);
 	}
@@ -49,6 +55,7 @@ public class InventoryController {
 	@PutMapping("/inventories/{id}")
 	public ResponseEntity<Inventory> updateQuantityForProduct(@PathVariable(value = "id") long id, @Validated @RequestBody Inventory inve) 
 			throws InventoryNotFound {
+		log.info("calling updateQuantityForProduct from InventoryController");
 		Inventory fetchedInven = invenService.getQuantityById(id);
 		fetchedInven.setQuantity(inve.getQuantity());
 		final Inventory updatedInven = invenService.addQuantity(fetchedInven);
@@ -57,6 +64,7 @@ public class InventoryController {
 	
 	@DeleteMapping("/inventories/{id}")
 	public ResponseEntity<?> deleteQuantityForProduct(@PathVariable(value = "id") long id) throws InventoryNotFound	 {
+		log.info("calling deleteQuantityForProduct from InventoryController");
 		invenService.deleteQuantityById(id);
 		return new ResponseEntity<>("Quantity for this product id "+id +" has been deleted!!!",HttpStatus.OK);
 	}	
